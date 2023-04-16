@@ -15,6 +15,7 @@ class TodoAction extends StatelessWidget {
     );
   }
 
+// Checked Circle Box ----------------------------------------------------------
   ListTile checkedCircleBox(TodoProvider task, int index) {
     return ListTile(
       leading: Checkbox(
@@ -24,15 +25,13 @@ class TodoAction extends StatelessWidget {
         onChanged: ((_) => task.toggleCompleted(task.allTasks[index])),
         value: task.allTasks[index].completed,
       ),
-      // -----------------------------------------------------------------------
+      // Animação de "Task Riscada" --------------------------------------------
       title: Text(
         style: TextStyle(
           color: Colors.black87,
           fontSize: 18,
           fontWeight: FontWeight.w500,
-          decoration: task.allTasks[index].completed
-              ? TextDecoration.lineThrough
-              : TextDecoration.none,
+          decoration: task.allTasks[index].completed ? TextDecoration.lineThrough : TextDecoration.none,
         ),
         // ---------------------------------------------------------------------
         task.allTasks[index].todoTitle,
@@ -46,7 +45,7 @@ class TodoAction extends StatelessWidget {
     return ListView.builder(
       itemCount: task.allTasks.length,
       itemBuilder: ((context, index) =>
-          // -------------------------------------------------------------------
+          // Animação "EXCLUIR" ------------------------------------------------
           Dismissible(
             background: Container(
               color: Colors.white,
@@ -56,8 +55,7 @@ class TodoAction extends StatelessWidget {
                 horizontal: 15,
                 vertical: 6,
               ),
-              child: const Icon(Icons.delete,
-                  color: Color.fromARGB(255, 224, 46, 34), size: 34),
+              child: const Icon(Icons.delete, color: Color.fromARGB(255, 224, 46, 34), size: 34),
             ),
             key: UniqueKey(),
             direction: DismissDirection.endToStart,
