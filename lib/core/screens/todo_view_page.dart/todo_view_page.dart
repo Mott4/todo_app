@@ -57,8 +57,7 @@ class _TodoPageViewState extends State<TodoPageView> {
           content: TextField(
             controller: _textFieldController,
             autofocus: true,
-            decoration:
-                const InputDecoration(hintText: "Adicione uma nova task"),
+            decoration: const InputDecoration(hintText: "Adicione uma nova task"),
             onSubmitted: (_) => _submit(),
           ),
         );
@@ -70,7 +69,7 @@ class _TodoPageViewState extends State<TodoPageView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Todo App')),
+        title: const Center(child: Text('Todos App')),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
